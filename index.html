@@ -1,13 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <h1>Hello!</h1>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./Assets/css/style.css">
+  <title>Code Quiz!</title>
 </head>
 <body>
-    
+  <nav>
+    <a id="landingNav" >Quiz</a>
+    <a id=scoreNav>Highscores</a>
+  </nav>
+  <div id="buttonBox">
+    <h1>Timed Quiz</h1>
+    <div id="buttonContainer">
+      <button id="startBtn">Start Quiz</button>
+      <button id="scoreBtn">Highscores</button>
+    </div>
+  </div>
+  <div id="questionBox">
+    <h3 id="timer">:100</h3>
+    <h3 id="score">0</h3>
+    <div id="questions">
+      <ul>
+        <h2 id="question">Question 1</h2>
+        <button class="option" id="option1" value="A">A</button>
+        <button class="option" id="option2" value="B">B</button>
+        <button class="option" id="option3" value="C">C</button>
+        <button class="option" id="option4" value="D">D</button>
+      </ul>
+      <button id="resetBtn">Reset Quiz</button>
+    </div>
+  </div>
+<div id="highScores">
+  <h1>Leaderboard</h1>
+  <ul id="scoreList">
+  </ul>
+</div>
+<div id="submitScore">
+  <form id = "submitForm">
+    <h1>Submit Score</h1>
+    <input id="name" type="text" placeholder="Name">
+    <input id="submitButton" type="submit">
+  </form>
+</div>
 </body>
+<script src="./Assets/js/questions.js"></script>
+<script src="./Assets/js/script.js"></script>
 </html>
