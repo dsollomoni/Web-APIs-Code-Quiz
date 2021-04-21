@@ -101,3 +101,59 @@ document.getElementById("submitForm").addEventListener("submit", (e) => {
     submitForm.style.display = "none";
   }
 })
+// deletes all children nodes to leaderboards and creates new ones in order
+var generateLeaderBoard = () => {
+  while(scoreList.firstChild) {
+    scoreList.firstChild.remove();
+  }
+  var records = [];
+  for(var [key,value] of Object.entries(localStorage)) {
+    var val = JSON.parse(value);
+    records.push(val);
+  }
+  records.sort((a,b)=> {
+    console.log(a,b)
+    return b[1] - a[1];
+  })
+  // creates new children nodes for scoreboard
+  records.forEach( (rec) =>{
+    console.log(rec);
+    var record = document.createElement("div");
+    var playerName = document.createTextNode(`${rec[0]} ${rec[1]} points`);
+    record.appendChild(playerName);
+  
+    scoreList.appendChild(record);
+  })
+}
+
+
+option1.addEventListener("click",()=>answerCheck("A"));
+option2.addEventListener("click",()=>answerCheck("B"));
+option3.addEventListener("click",()=>answerCheck("C"));
+option4.addEventListener("click",()=>answerCheck("D"));
+
+scoreBtn.addEventListener("click", () => {
+  if(interval) clearInterval(interval);
+  questionBox.style.display = "none";
+  buttonBox.style.display = "none";
+  leaderBoard.style.display = "flex";
+  generateLeaderBoard();
+})
+
+var landingNav = document.getElementById("landingNav");
+var scoreNav = document.getElementById("scoreNav");
+
+landingNav.addEventListener("click", () => {
+  questionBox.style.display = "none";
+  buttonBox.style.display = "flex";
+  leaderBoard.style.display = "none";
+  submitForm.style.display = "none";
+})
+
+scoreNav.addEventListener("click", () => {
+  questionBox.style.display = "none";
+  buttonBox.style.display = "none";
+  leaderBoard.style.display = "flex";
+  submitForm.style.display = "none";
+  generateLeaderBoard();
+})

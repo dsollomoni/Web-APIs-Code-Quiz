@@ -12,7 +12,7 @@ var questions = [
     option1:"if i = 5 then",
     option2:"if i == 5 then",
     option3:"if i = 5",
-    option4:"if (i == 5)  ",
+    option4:"if (i == 5)",
     answer:"D",
   },
   {
